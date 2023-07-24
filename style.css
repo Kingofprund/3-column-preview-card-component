@@ -1,0 +1,130 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+:root{
+    --clr-sedan:hsl(31, 77%, 52%);
+    --clr-suv:hsl(184, 100%, 22%);
+    --clr-luxury:hsl(179, 100%, 13%);
+    --clr-bgrd-aux:hsl(0, 0%, 95%);
+    --clr-text:hsla(0, 0%, 100%, 0.75);
+    --ff-1:"Lexend Deca";
+    --ff-2:"Big Shoulders Display";
+    --fw-heavy:700;
+}
+body{
+    background-color: var(--clr-bgrd-aux);
+    font-family: var(--ff-1);
+}
+.hero{
+    display:grid;
+    place-content: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.flex_group{
+    display:flex;
+    flex-direction: column;
+}
+.group{
+    padding:2em;
+    max-width:20em;
+}
+.flex_group >.group:nth-child(1){
+    background-color: var(--clr-sedan);
+    border-radius:1em 1em 0 0;
+}
+.flex_group :nth-of-type(2){
+    background-color: var(--clr-suv);
+}
+.flex_group :nth-of-type(3){
+    background-color: var(--clr-luxury);
+    border-radius:0 0 1em 1em;
+}
+.text{
+    margin:1em;
+}
+.group h1{
+    color:var(--clr-bgrd-aux);
+    text-transform: uppercase;
+    margin-top: 1em;
+    font-family: var(--ff-2);
+    font-size:2em;
+}
+.group p{
+    color:var(--clr-text);
+    margin-top:1em;
+    
+}
+.group button{
+    margin-top:2em;
+    background-color: var(--clr-bgrd-aux);
+    border-style: none;
+    border-radius: 3em;
+    padding:1em;
+    cursor: pointer;
+}
+.sedan{
+    color:var(--clr-sedan)
+}
+.suv{
+    color:var(--clr-suv)
+}
+.luxury{
+    color:var(--clr-luxury);
+}
+@media only screen and (min-width:850px){
+    .flex_group{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .flex_group >.group:nth-of-type(1){
+        border-radius: 1em 0 0 1em;
+    }
+    .flex_group :nth-of-type(3){
+        border-radius: 0 1em 1em 0;
+    }
+   
+}
